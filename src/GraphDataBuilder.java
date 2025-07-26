@@ -11,7 +11,7 @@ public class GraphDataBuilder {
 
             // Write user nodes with fixed color
             for (SocialMediaData.User user : users) {
-                String color = "#9b59b6"; // Purple for users
+                String color = "white"; // white for users
                 writer.write(String.format("  \"%s\" [shape=circle, style=filled, fillcolor=\"%s\"];\n", user.getUsername(), color));
             }
 
@@ -40,9 +40,9 @@ public class GraphDataBuilder {
     }
 
     private static String getColorByImportance(double score) {
-        if (score >= 7) return "#e74c3c"; // red
-        else if (score >= 4) return "#f39c12"; // orange
-        else return "#3498db"; // blue
+        if (score >= 4) return "yellow"; 
+        else if (score >= 2) return "orange"; 
+        else return "blue"; 
     }
 
 }

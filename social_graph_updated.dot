@@ -1,0 +1,24 @@
+digraph SocialGraph {
+  "Alice" [shape=circle, style=filled, fillcolor="white"];
+  "Bob" [shape=circle, style=filled, fillcolor="white"];
+  "Charlie" [shape=circle, style=filled, fillcolor="white"];
+  "Diana" [shape=circle, style=filled, fillcolor="white"];
+  "post_0" [label="Post", shape=box, style=filled, fillcolor="orange"];
+  "Alice" -> "post_0";
+  "Bob" -> "post_0" [style=dashed];
+  "Charlie" -> "post_0" [style=dashed];
+  "Diana" -> "post_0" [style=dashed];
+  "post_1" [label="Post", shape=box, style=filled, fillcolor="orange"];
+  "Bob" -> "post_1";
+  "Alice" -> "post_1" [style=dashed];
+  "Charlie" -> "post_1" [style=dashed];
+  "Diana" -> "post_1" [style=dashed];
+  "post_2" [label="Post", shape=box, style=filled, fillcolor="blue"];
+  "Charlie" -> "post_2";
+  "Alice" -> "post_2" [style=dashed];
+  "Bob" -> "post_2" [style=dashed];
+  "post_3" [label="Post", shape=box, style=filled, fillcolor="blue"];
+  "Diana" -> "post_3";
+  "Alice" -> "post_3" [style=dashed];
+  "Charlie" -> "post_3" [style=dashed];
+}
