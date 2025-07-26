@@ -20,6 +20,14 @@ public class SocialMediaData {
             return username;
         }
 
+        public void addAttribute(String key, String value) {
+            attributes.put(key, value);
+        }
+
+        public String getAttribute(String key) {
+            return attributes.get(key);
+        }
+
         public void createPost(Post post) {
             createdPosts.add(post);
         }
@@ -29,7 +37,12 @@ public class SocialMediaData {
         }
 
         public void readPost(Post post) {
-            readPosts.add(post);
+            if (!readPosts.contains(post)) {
+                readPosts.add(post);
+            }
+            if (!post.getPostViewers().contains(this)) {
+                post.getPostViewers().add(this);
+            }
         }
 
         public List<Post> getReadPosts() {
@@ -47,11 +60,13 @@ public class SocialMediaData {
         User author;
         String content;
         List<String> postComments;
+        List<User> postViewers;
     
         public Post(User author, String content) {
             this.author = author;
             this.content = content;
             this.postComments = new ArrayList<>();
+            this.postViewers = new ArrayList<>();
         }
 
         public User getAuthor() {
@@ -69,6 +84,10 @@ public class SocialMediaData {
         public void addComment(User commentAuthor, String comment) {
             postComments.add(comment);
             commentAuthor.createdComments.add(comment);
+        }
+
+        public List<User> getPostViewers() {
+            return postViewers;
         }
     }
 }
