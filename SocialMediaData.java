@@ -81,6 +81,10 @@ public class SocialMediaData {
             return postComments;
         }
 
+        public int getNumPostComments() {
+            return postComments.size();
+        }
+
         public void addComment(User commentAuthor, String comment) {
             postComments.add(comment);
             commentAuthor.createdComments.add(comment);
@@ -88,6 +92,24 @@ public class SocialMediaData {
 
         public List<User> getPostViewers() {
             return postViewers;
+        }
+
+        public int getNumPostViewers() {
+            return postViewers.size();
+        }
+
+        // calculating post's importance score
+        public double getImportanceScore(String criteria) {
+            switch (criteria.toLowerCase()) {
+                case "views":
+                    return getNumPostViewers();
+                case "comments":
+                    return getNumPostComments();
+                case "blend":
+                    return 0.7 * getNumPostViewers() + 0.3 * getNumPostComments();
+                default:
+                    return 0;
+            }
         }
     }
 }
