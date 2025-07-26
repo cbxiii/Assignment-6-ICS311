@@ -3,14 +3,17 @@ import java.util.*;
 public class SocialMediaData {
     public static class User {
         String username;
+        Map<String, String> attributes;
         List<Post> createdPosts;
         List<Post> readPosts;
         List<String> createdComments;
 
         public User(String username) {
             this.username = username;
+            this.attributes = new HashMap<>();
             this.createdPosts = new ArrayList<>();
             this.readPosts = new ArrayList<>();
+            this.createdComments = new ArrayList<>();
         }
 
         public String getUsername() {
